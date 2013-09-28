@@ -1,5 +1,5 @@
 Sample projects using JAX-WS technologies.
-================
+=========================
 
 1) RESTful example how to integrate Apache CXF and Spring 3. (RESTfulAppApacheCXF project)
  
