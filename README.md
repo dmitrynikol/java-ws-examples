@@ -12,6 +12,7 @@ Used technologies:
 - Maven
 
 You can test functionality with Curl.
+
 http://localhost:8080/RESTfulAppApacheCXF/rest/users/all - get all users (GET) 
 http://localhost:8080/RESTfulWebApp/rest/users/create - create user (POST) 
 http://localhost:8080/RESTfulAppApacheCXF/rest/users/3 - find user by id = 5 (GET) 
