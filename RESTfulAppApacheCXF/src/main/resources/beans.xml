@@ -1,0 +1,29 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ 	xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+ 	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://cxf.apache.org/jaxrs
+    http://cxf.apache.org/schemas/jaxrs.xsd">
+ 
+    <!-- Define web service endpoint -->
+    <!-- see more details on http://cxf.apache.org/docs/embedding-cxf-inside-spring.html -->
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-extension-*.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+	
+	<bean id="userWebService" class="com.dmitrynikol.service.UserRestService" />
+	
+	<!-- Jackson provide for JAXB/JSON support -->
+	<bean id="jacksonProvider" class="org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider" />
+	
+	<jaxrs:server id="userRestfulService" address="/">
+	  <jaxrs:serviceBeans>
+	    <ref bean="userWebService" />
+	  </jaxrs:serviceBeans>
+	  <jaxrs:providers>
+	  	<ref bean="jacksonProvider"/>
+	  </jaxrs:providers>
+	</jaxrs:server>
+ 
+</beans>
